@@ -2,12 +2,16 @@ import discord
 from discord.ext import commands, tasks
 from discord import app_commands
 import requests
+import os
+
+from dotenv import load_dotenv
+load_dotenv()
 
 # --- CONFIG ---
-api_key = "YOUR_API_KEY_HERE"  # YOUR TORN API KEY
-bot_token = "YOUR_DISCORD_BOT_TOKEN"  # YOUR DISCORD BOT ID
-channel_id = 11111111111111111  # YOUR DISCORD CHANNEL ID
-guild_id = 111111111111111111  # YOUR DISCORD CHANNEL ID
+api_key = os.getenv("API_KEY")  # YOUR TORN API KEY
+bot_token = os.getenv("BOT_TOKEN")  # YOUR DISCORD BOT ID
+channel_id = int(os.getenv("CHANNEL_ID"))  # YOUR DISCORD CHANNEL ID
+guild_id = int(os.getenv("GUILD_ID"))  # YOUR DISCORD CHANNEL ID
 
 # --- Setup bot ---
 intents = discord.Intents.default()
